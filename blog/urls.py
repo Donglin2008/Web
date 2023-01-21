@@ -8,4 +8,8 @@ app_name = 'blog'
 urlpatterns = [
     # 主页
     path('', views.index, name='index'),
+    # 查看已有笔记
+    path('blog/<int:blog_id>/', views.blogs, name='blog'),
+    # 新建笔记
+    path('new_blog/', views.new_blog, name='new_blog'),
 ]

@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<! DOCTYPE html>
+{% extends "blog/base.html" %}
+{% block content %}
+{% load static %}
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text / html; charset = utf-8" />
+    </head>
+    <body>
+        <form method = "post" action = "{% url 'blog:new_blog' %}">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </body>
 </html>
+{% endblock %}
