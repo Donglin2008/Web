@@ -1,0 +1,8 @@
+__pycache__/
+venv/
+uploads/
+.idea/
+**/.DS_Store
+**/.__pycache__/
+.DS_Store
+*.sqlite3
