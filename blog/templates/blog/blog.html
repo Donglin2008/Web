@@ -12,9 +12,22 @@
 <script src="/static/mdeditor/js/lib/jquery.flowchart.min.js"></script>
 <script src="/static/mdeditor/js/editormd.min.js"></script>
 
+<h1>{{ blog.name }}</h1>
+
+<div class="pb-2 mb-2 border-bottom"></div>
+
+<p>{{ blog.date_added }}</p>
+
 <div id="doc-content">
-    <p>{{ blog.name }}</p>
     <textarea>{{ blog.text }}</textarea>
+</div>
+
+<div class="text-center">
+<a href="{% url 'blog:edit_blog' blog.id %}">
+    <button type="button" class="btn btn-outline-primary translate-middle-x">编辑</button>
+</a>
+<button type="button" class="btn btn-outline-secondary float-right">Next</button>
+<button type="button" class="btn btn-outline-secondary float-left">Last</button>
 </div>
 
 <script type="text/javascript">

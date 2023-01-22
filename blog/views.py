@@ -34,6 +34,10 @@ def edit_blog(request, blog_id):
     blog = EditBlog.objects.get(id=blog_id)
     if request.method != 'POST':
         form = MDForm(instance=blog)
+    elif 'del' in request.POST:
+        form = None
+        blog.delete()
+        return redirect('blog:index')
     else:
         form = MDForm(instance=blog, data=request.POST)
         if form.is_valid():

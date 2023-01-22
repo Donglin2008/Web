@@ -1,10 +1,12 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+
 <form action="{% url 'blog:edit_blog' blog.id %}" method='post'>
     {% csrf_token %}
     {{ form.media }}
     {{ form.as_p }}
-    <button name="submit">Save changes</button>
+    <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+    <button type="submit" name="del" class="btn btn-outline-danger">Delete</button>
 </form>
 {% endblock %}

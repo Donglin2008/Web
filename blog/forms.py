@@ -7,4 +7,3 @@ class MDForm (forms.ModelForm):
         model = models.EditBlog
         fields = ['name', 'text']
         labels = {'name ': 'Title', 'text': ''}
-

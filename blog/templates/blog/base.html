@@ -1,5 +1,4 @@
 <!doctype html>
-<!--TODO:适配暗色模式-->
 
 {% load bootstrap4 %}
 <html lang="zh">
@@ -7,14 +6,83 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1,
     shrink-to-fit=no">
-  <title>Learning Log</title>
+  <title>DongLin</title>
 
   {% bootstrap_css %}
   {% bootstrap_javascript jquery='full' %}
 
+  <style type="text/css">
+      @media screen and (prefers-color-scheme: dark) {
+          .bg-light{
+            background-color: #161b22 !important;
+          }
+          .navbar-light .navbar-brand {
+            color: #f0f6fc;
+          }
+          .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover{
+            color: rgba(255,255,255,0.7);
+          }
+          .navbar-light .navbar-nav .nav-link{
+            color: #dedede;
+          }
+          .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
+            color: rgba(255,255,255,0.7);
+          }
+          .navbar-light .navbar-toggler-icon{
+            background-image:
+            url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+          }
+          .navbar-light .navbar-toggler{
+            border-color: rgba(241, 241, 241, 0.1);
+          }
+          .border-bottom{
+            border-bottom: 1px solid #2e353c!important;
+          }
+          body{
+            color: #c9d1d9;
+            background-color: rgb(13, 17, 23);
+          }
+          a{
+            color: #c9d1d9;
+          }
+      }
+
+      @media screen and (prefers-color-scheme: light) {
+          .bg-light{
+            background-color: #24292f !important
+          }
+          .navbar-light .navbar-brand {
+            color: #f0f6fc;
+          }
+          .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover{
+            color: rgba(255,255,255,0.7);
+          }
+          .navbar-light .navbar-nav .nav-link{
+            color: #dedede;
+          }
+          .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover{
+            color: rgba(255,255,255,0.7);
+          }
+          .navbar-light .navbar-toggler-icon{
+            background-image:
+            url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+          }
+          .navbar-light .navbar-toggler{
+            border-color: rgba(241, 241, 241, 0.1);
+          }
+          body{
+            color: #24292f;
+            background-color: rgb(246,248, 250);
+          }
+          a{
+            color: #24292f;
+          }
+      }
+  </style>
+
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+<nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
     <a class="navbar-brand" href="{% url 'blog:index' %}">
       Donglin
     </a>
@@ -32,6 +100,7 @@
       </ul>
     </div>
  </nav>
+
   <main role="main" class="container">
     <div class="pb-2 mb-2 border-bottom">
       {% block page_header %}{% endblock page_header %}
