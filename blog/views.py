@@ -28,3 +28,17 @@ def new_blog(request):
 
     context = {'form': form}
     return render(request, 'blog/new_blog.html', context)
+
+def edit_blog(request, blog_id):
+    """编辑已有笔记"""
+    blog = EditBlog.objects.get(id=blog_id)
+    if request.method != 'POST':
+        form = MDForm(instance=blog)
+    else:
+        form = MDForm(instance=blog, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blog:index')
+
+    context = {'blog': blog, 'form': form}
+    return render(request, 'blog/edit_blog.html', context)

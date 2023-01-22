@@ -1,4 +1,5 @@
 <!doctype html>
+<!--TODO:适配暗色模式-->
 
 {% load bootstrap4 %}
 <html lang="zh">
@@ -13,9 +14,7 @@
 
 </head>
 <body>
-
 <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
-
     <a class="navbar-brand" href="{% url 'blog:index' %}">
       Donglin
     </a>
@@ -41,7 +40,6 @@
       {% block content %}{% endblock content %}
     </div>
   </main>
-
 </body>
 
 </html>
