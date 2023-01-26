@@ -5,8 +5,24 @@
 <form action="{% url 'blog:edit_blog' blog.id %}" method='post'>
     {% csrf_token %}
     {{ form.media }}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-outline-primary">Save Changes</button>
+    <p>
+        <label class="form-label">{{ form.name.label }}</label>
+        {{ form.name }}
+    </p>
+
+    <p>
+        <label class="form-label">{{ form.preface.label }}</label>
+        {{ form.preface }}
+    </p>
+
+    <label class="form-label">{{ form.text.label }}</label>
+    {{ form.text }}
+
+    <button type="submit" class="btn btn-outline-success">Save Changes</button>
     <button type="submit" name="del" class="btn btn-outline-danger">Delete</button>
+
 </form>
+
+<br/>
+
 {% endblock %}

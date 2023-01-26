@@ -12,9 +12,145 @@
         <form method = "post" action = "{% url 'blog:new_blog' %}">
             {% csrf_token %}
             {{ form.media }}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <p>
+                <label class="form-label">{{ form.name.label }}</label>
+                {{ form.name }}
+            </p>
+
+            <p>
+                <label class="form-label">{{ form.preface.label }}</label>
+                {{ form.preface }}
+            </p>
+
+            <label class="form-label">{{ form.text.label }}</label>
+            {{ form.text }}
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
     </body>
+
+<br/>
+
+    <!--存在bug⬇-->
+    <!--<script type="text/javascript">
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event =>
+        {
+          if (event.matches) {
+            $(function () {
+                editormd("id_text-wmd-wrapper", {
+                watch: true, // 关闭实时预览
+                lineNumbers: false,
+                lineWrapping: false,
+                width: "100%",
+                height: 500,
+                placeholder: '',
+                // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
+                onfullscreen : function() {
+                    this.editor.css("border-radius", 0).css("z-index", 9999);
+                },
+                onfullscreenExit : function() {
+                    this.editor.css({
+                        zIndex : 10,
+                        border : "1px solid rgb(221,221,221)"
+                    })
+                },
+                syncScrolling: "single",
+                path: "/static/mdeditor/js/lib" + "/",
+                // theme
+                theme : "dark",
+                previewTheme : "dark",
+                editorTheme : "pastel-on-dark",
+
+                saveHTMLToTextarea: true, // editor.md 有问题没有测试成功
+                toolbarAutoFixed: true,
+                searchReplace: true,
+                emoji: true,
+                tex: true,
+                taskList: false,
+                flowChart: true,
+                sequenceDiagram: true,
+
+                // image upload
+                imageUpload: true,
+                imageFormats: ['jpg', 'JPG', 'jpeg', 'JPEG', 'gif', 'GIF', 'png', 'PNG', 'bmp', 'BMP', 'webp', 'WEBP'],
+                imageUploadURL: "/mdeditor/uploads/",
+                toolbarIcons: function () {
+                    return ['undo', 'redo', '|', 'bold', 'del', 'italic', 'quote', 'ucwords', 'uppercase', 'lowercase', '|', 'h1', 'h2', 'h3', 'h5', 'h6', '|', 'list-ul', 'list-ol', 'hr', '|', 'link', 'reference-link', 'image', 'code', 'preformatted-text', 'code-block', 'table', 'datetime', 'emoji', 'html-entities', 'pagebreak', 'goto-line', '|', 'help', 'info', '||', 'preview', 'watch', 'fullscreen']
+                },
+                onload: function () {
+                    console.log('onload', this);
+                    //this.fullscreen();
+                    //this.unwatch();
+                    //this.watch().fullscreen();
+
+                    //this.setMarkdown("#PHP");
+                    //this.width("100%");
+                    //this.height(480);
+                    //this.resize("100%", 640);
+                }
+            });
+          });
+          }
+        });
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event =>
+        {
+          if (event.matches) {
+            $(function () {
+                editormd("id_text-wmd-wrapper", {
+                watch: true, // 关闭实时预览
+                lineNumbers: false,
+                lineWrapping: false,
+                width: "100%",
+                height: 500,
+                placeholder: '',
+                // 当有多个mdeditor时，全屏后，其他mdeditor仍然显示，解决此问题。
+                onfullscreen : function() {
+                    this.editor.css("border-radius", 0).css("z-index", 9999);
+                },
+                onfullscreenExit : function() {
+                    this.editor.css({
+                        zIndex : 10,
+                        border : "1px solid rgb(221,221,221)"
+                    })
+                },
+                syncScrolling: "single",
+                path: "/static/mdeditor/js/lib" + "/",
+                // theme
+                theme : "default",
+                previewTheme : "default",
+                editorTheme : "default",
+
+                saveHTMLToTextarea: true, // editor.md 有问题没有测试成功
+                toolbarAutoFixed: true,
+                searchReplace: true,
+                emoji: true,
+                tex: true,
+                taskList: false,
+                flowChart: true,
+                sequenceDiagram: true,
+
+                // image upload
+                imageUpload: true,
+                imageFormats: ['jpg', 'JPG', 'jpeg', 'JPEG', 'gif', 'GIF', 'png', 'PNG', 'bmp', 'BMP', 'webp', 'WEBP'],
+                imageUploadURL: "/mdeditor/uploads/",
+                toolbarIcons: function () {
+                    return ['undo', 'redo', '|', 'bold', 'del', 'italic', 'quote', 'ucwords', 'uppercase', 'lowercase', '|', 'h1', 'h2', 'h3', 'h5', 'h6', '|', 'list-ul', 'list-ol', 'hr', '|', 'link', 'reference-link', 'image', 'code', 'preformatted-text', 'code-block', 'table', 'datetime', 'emoji', 'html-entities', 'pagebreak', 'goto-line', '|', 'help', 'info', '||', 'preview', 'watch', 'fullscreen']
+                },
+                onload: function () {
+                    console.log('onload', this);
+                    //this.fullscreen();
+                    //this.unwatch();
+                    //this.watch().fullscreen();
+
+                    //this.setMarkdown("#PHP");
+                    //this.width("100%");
+                    //this.height(480);
+                    //this.resize("100%", 640);
+                }
+            });
+          });
+          }
+        });
+
+    </script>-->
 </html>
 {% endblock %}

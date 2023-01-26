@@ -9,9 +9,13 @@ urlpatterns = [
     # 主页
     path('', views.index, name='index'),
     # 查看已有笔记
-    path('blog/<int:blog_id>/', views.blogs, name='blog'),
+    path('blog/<int:blog_id>/', views.blog, name='blog'),
     # 新建笔记
     path('new_blog/', views.new_blog, name='new_blog'),
     # 编辑已有笔记
     path('edit_blog/<int:blog_id>/', views.edit_blog, name='edit_blog'),
+    # 个人博客首页
+    path('blogs/', views.blogs, name='blogs'),
+    # 作品界面
+    path('videos', views.videos, name='videos')
 ]

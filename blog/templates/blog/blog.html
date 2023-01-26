@@ -22,13 +22,18 @@
     <textarea>{{ blog.text }}</textarea>
 </div>
 
-<div class="text-center">
-<a href="{% url 'blog:edit_blog' blog.id %}">
-    <button type="button" class="btn btn-outline-primary translate-middle-x">编辑</button>
-</a>
-<button type="button" class="btn btn-outline-secondary float-right">Next</button>
-<button type="button" class="btn btn-outline-secondary float-left">Last</button>
-</div>
+<footer class="footer">
+    <div class="text-center">
+    <a href="{% url 'blog:edit_blog' blog.id %}">
+        <button type="button" class="btn btn-outline-primary translate-middle-x">编辑</button></a>
+    <a href="{% url 'blog:blog' blog_next %}">
+        <button type="button" class="btn btn-outline-secondary float-right">Next</button></a>
+    <a href="{% url 'blog:blog' blog_last %}">
+        <button type="button" class="btn btn-outline-secondary float-left">Last</button></a>
+    </div>
+</footer>
+
+<br/>
 
 <script type="text/javascript">
     var testEditor;

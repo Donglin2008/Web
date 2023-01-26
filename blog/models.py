@@ -5,6 +5,7 @@ from mdeditor.fields import MDTextField
 class EditBlog(models.Model):
     objects = models.Manager()
     name = models.CharField(max_length=20)
+    preface = models.TextField()
     text = MDTextField()
     date_added = models.DateTimeField(auto_now_add=True)
 

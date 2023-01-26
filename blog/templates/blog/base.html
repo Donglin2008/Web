@@ -78,11 +78,15 @@
             color: #24292f;
           }
       }
+      .navbar-expand-md .navbar-nav .nav-link{
+        padding-right: 25px;
+        padding-left: 25px;
+      }
   </style>
 
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
+  <nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
     <a class="navbar-brand" href="{% url 'blog:index' %}">
       Donglin
     </a>
@@ -94,12 +98,15 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:new_blog' %}">
-              New blog</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:blogs' %}">
+                  Blog</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'blog:videos' %}">
+                  作品</a></li>
       </ul>
     </div>
- </nav>
+  </nav>
 
   <main role="main" class="container">
     <div class="pb-2 mb-2 border-bottom">
@@ -107,6 +114,9 @@
     </div>
     <div>
       {% block content %}{% endblock content %}
+    </div>
+    <div class="footer">
+      {% block footer %}{% endblock footer %}
     </div>
   </main>
 </body>

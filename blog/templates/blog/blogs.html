@@ -1,0 +1,36 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+
+{% for blog in blogs %}
+
+<div class="card w-75 mb-3 mx-auto">
+  <div class="card-header">
+      {{ blog.name }}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+        <p>{{ blog.preface }}</p>
+    </blockquote>
+    <a href="{% url 'blog:blog' blog.id %}" class="btn-primary btn-sm">Read More</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{ blog.date_added }}
+  </div>
+</div>
+
+{% endfor %}
+
+<br/>
+
+<footer>
+  <div class="text-center">
+    <a href="{% url 'blog:new_blog' %}">
+        <button type="button" class="btn btn-outline-primary translate-middle-x">New</button>
+    </a>
+  </div>
+</footer>
+
+<br/>
+
+{% endblock %}
