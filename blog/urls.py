@@ -16,6 +16,4 @@ urlpatterns = [
     path('edit_blog/<int:blog_id>/', views.edit_blog, name='edit_blog'),
     # 个人博客首页
     path('blogs/', views.blogs, name='blogs'),
-    # 作品界面
-    path('videos', views.videos, name='videos')
 ]

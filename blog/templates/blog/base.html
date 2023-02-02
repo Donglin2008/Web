@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1,
     shrink-to-fit=no">
   <title>DongLin</title>
+  <link rel="icon" href="/media/favicon.png" sizes="32x32" type="image/png">
 
   {% bootstrap_css %}
   {% bootstrap_javascript jquery='full' %}
@@ -17,6 +18,9 @@
             background-color: #161b22 !important;
           }
           .navbar-light .navbar-brand {
+            color: #f0f6fc;
+          }
+          .navbar-light .navbar-text {
             color: #f0f6fc;
           }
           .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover{
@@ -54,6 +58,9 @@
           .navbar-light .navbar-brand {
             color: #f0f6fc;
           }
+          .navbar-light .navbar-text {
+            color: #f0f6fc;
+          }
           .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover{
             color: rgba(255,255,255,0.7);
           }
@@ -84,6 +91,8 @@
       }
   </style>
 
+  {% block head %}{% endblock head %}
+
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
@@ -101,9 +110,6 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'blog:blogs' %}">
                   Blog</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog:videos' %}">
-                  作品</a></li>
       </ul>
     </div>
   </nav>
@@ -115,10 +121,8 @@
     <div>
       {% block content %}{% endblock content %}
     </div>
-    <div class="footer">
-      {% block footer %}{% endblock footer %}
-    </div>
   </main>
+
 </body>
 
 </html>

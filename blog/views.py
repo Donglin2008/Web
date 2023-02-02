@@ -6,14 +6,18 @@ from .forms import MDForm
 # Create your views here.
 def index(request):
     """主页"""
-    return render(request, 'blog/index.html')
+    blog = EditBlog.objects.last()
+    context = {'last_blog': blog}
+    return render(request, 'blog/index.html', context)
 
 def blog(request, blog_id):
     """查看具体笔记内容"""
     blog = EditBlog.objects.get(id=blog_id)
     blog_next = blog.id + 1
     blog_last = blog.id - 1
-    context = {'blog': blog, 'blog_next': blog_next, 'blog_last': blog_last}
+    id_last = EditBlog.objects.last().id
+    id_first = EditBlog.objects.first().id
+    context = {'blog': blog, 'blog_next': blog_next, 'blog_last': blog_last, 'id_last': id_last, 'id_first': id_first}
     return render(request, 'blog/blog.html', context)
 
 def new_blog(request):
@@ -37,12 +41,12 @@ def edit_blog(request, blog_id):
     elif 'del' in request.POST:
         form = None
         blog.delete()
-        return redirect('blog:index')
+        return redirect('blog:blogs')
     else:
         form = MDForm(instance=blog, data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('blog:index')
+            return redirect(f'/blog/{blog_id}')
 
     context = {'blog': blog, 'form': form}
     return render(request, 'blog/edit_blog.html', context)
@@ -52,7 +56,3 @@ def blogs(request):
     blogs = EditBlog.objects.order_by('-date_added')
     context = {'blogs': blogs}
     return render(request, 'blog/blogs.html', context)
-
-def videos(request):
-    """作品主页"""
-    return render(request, 'blog/videos.html')
