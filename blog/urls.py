@@ -16,4 +16,6 @@ urlpatterns = [
     path('edit_blog/<int:blog_id>/', views.edit_blog, name='edit_blog'),
     # 个人博客首页
     path('blogs/', views.blogs, name='blogs'),
+    # 介绍
+    path('about/', views.about, name='about'),
 ]

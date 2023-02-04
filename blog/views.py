@@ -56,3 +56,7 @@ def blogs(request):
     blogs = EditBlog.objects.order_by('-date_added')
     context = {'blogs': blogs}
     return render(request, 'blog/blogs.html', context)
+
+def about(request):
+    """介绍页"""
+    return render(request, 'blog/about.html')

@@ -23,6 +23,7 @@
 
 <br/>
 
+{% if user.is_superuser %}
 <footer>
   <div class="text-center">
     <a href="{% url 'blog:new_blog' %}">
@@ -32,5 +33,6 @@
 </footer>
 
 <br/>
+{% endif %}
 
 {% endblock %}

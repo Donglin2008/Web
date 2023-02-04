@@ -1,3 +1,4 @@
+{% if user.is_superuser %}
 {% extends 'blog/base.html' %}
 
 {% block content %}
@@ -26,3 +27,4 @@
 <br/>
 
 {% endblock %}
+{% endif %}

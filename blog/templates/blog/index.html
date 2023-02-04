@@ -8,7 +8,11 @@
             background-size:cover;
             padding-top: 7%;
             padding-bottom: 10%;
-      }
+    }
+    .mb-4, .my-4{
+        margin-bottom:0px!important;
+        }
+    .pb-3, .py-3{ padding-bottom:0px!important;}
 </style>
 
 {% endblock head %}
@@ -18,14 +22,19 @@
 <div class="jumbotron">
     <div class="container">
         <div class="text-center">
-            <h1 class="display-2" style="color: #f8f9fa; margin-bottom:300px">Donglin的个人站</h1>
+            <h1 class="display-2" style="color:rgba(246,248, 250, 0.9); margin-bottom:300px">Donglin的个人站</h1>
         </div>
 
         <br/>
         <div class="text-center">
             <div class="col-md-4 justify-content-end list-unstyled d-flex">
-                <a class="btn btn-lg btn-outline-light" style="margin-left:20px;" href="" role="button">注册 &raquo;</a>
-                <a class="btn btn-lg btn-outline-light" style="margin-left:20px;" href="" role="button">登陆 &raquo;</a>
+                {% if user.is_authenticated %}
+                    <h3 style="color: #f8f9fa;">Welcome, {{ user.username }}</h3>
+                {% else %}
+                    <a class="btn btn-lg btn-outline-light" style="margin-left:20px;" href="{% url 'users:login' %}"
+                        role="button">登陆 &raquo;</a>
+                    <a class="btn btn-lg btn-outline-light" style="margin-left:20px;" href="" role="button">注册 &raquo;</a>
+                {% endif %}
             </div>
         </div>
     </div>

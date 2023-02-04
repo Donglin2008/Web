@@ -1,0 +1,8 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="text-center" style="margin-top:10%;">
+    <h3 style="padding-bottom:5%;">您已成功注销，感谢您的支持</h3>
+    <a href="{% url 'blog:index' %}" type="button" class="btn btn-outline-primary">返回首页</a>
+</div>
+{% endblock %}

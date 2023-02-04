@@ -26,21 +26,24 @@
 
 <footer class="footer">
     <div class="text-center">
-    <a href="{% url 'blog:edit_blog' blog.id %}">
-        <button type="button" class="btn btn-outline-primary translate-middle-x">编辑</button></a>
-    {% if blog.id == id_last %}
-    <button type="button" class="btn btn-outline-secondary float-right" disabled>Next</button>
-    {% else %}
-    <a href="{% url 'blog:blog' blog_next %}">
-        <button type="button" class="btn btn-outline-secondary float-right">Next</button></a>
-    {% endif %}
+        {% if user.is_superuser %}
+        <a href="{% url 'blog:edit_blog' blog.id %}">
+            <button type="button" class="btn btn-outline-primary translate-middle-x">编辑</button></a>
+        {% endif %}
 
-    {% if blog.id == id_first %}
-    <button type="button" class="btn btn-outline-secondary float-left" disabled>Last</button>
-    {% else %}
-    <a href="{% url 'blog:blog' blog_last %}">
-        <button type="button" class="btn btn-outline-secondary float-left">Last</button></a>
-    {% endif %}
+        {% if blog.id == id_last %}
+        <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%" disabled>Next</button>
+        {% else %}
+        <a href="{% url 'blog:blog' blog_next %}">
+            <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%">Next</button></a>
+        {% endif %}
+
+        {% if blog.id == id_first %}
+        <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%" disabled>Last</button>
+        {% else %}
+        <a href="{% url 'blog:blog' blog_last %}">
+            <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%">Last</button></a>
+        {% endif %}
     </div>
 </footer>
 

@@ -1,14 +1,9 @@
-<! DOCTYPE html>
+{% if user.is_superuser %}
 <!--TODO：适配网页宽度-->
 {% extends "blog/base.html" %}
 
 {% block content %}
 {% load static %}
-<html>
-    <head>
-        <meta http-equiv = "Content-Type" content = "text / html; charset = utf-8" />
-    </head>
-    <body>
         <form method = "post" action = "{% url 'blog:new_blog' %}">
             {% csrf_token %}
             {{ form.media }}
@@ -26,7 +21,6 @@
             {{ form.text }}
             <button type="submit" class="btn btn-outline-primary">Submit</button>
         </form>
-    </body>
 
 <br/>
 
@@ -152,5 +146,6 @@
         });
 
     </script>-->
-</html>
+
 {% endblock %}
+{% endif %}

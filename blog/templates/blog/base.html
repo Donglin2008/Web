@@ -95,7 +95,7 @@
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
     <a class="navbar-brand" href="{% url 'blog:index' %}">
       Donglin
     </a>
@@ -108,12 +108,29 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog:blogs' %}">
-                  Blog</a></li>
-      </ul>
-    </div>
-  </nav>
+              <a class="nav-link" href="{% url 'blog:blogs' %}">Blog</a>
+            </li>
+        </ul>
 
+        <ul class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <text><h7 class="navbar-text">Hello,{{ user.username }}!</h7></text>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:logout' %}">注销</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:login' %}">登陆</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:register' %}">注册</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+    </nav>
+
+  {% block main %}
   <main role="main" class="container">
     <div class="pb-2 mb-2 border-bottom">
       {% block page_header %}{% endblock page_header %}
@@ -122,6 +139,7 @@
       {% block content %}{% endblock content %}
     </div>
   </main>
+  {% endblock main %}
 
 </body>
 

@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*', ]
 INSTALLED_APPS = [
     # 我的app
     'blog',
+    'users',
 
     # 其他app
     'mdeditor',
