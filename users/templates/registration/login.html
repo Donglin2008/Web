@@ -25,7 +25,7 @@
             <div class="form-floating" style="padding-top:15px">
                 <label for="id_username" class="h5">用户名</label>
                 <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username"
-                     class="form-control" placeholder="User Name" title="" required="" id="id_username">
+                     class="form-control" placeholder="User Name" required="" id="id_username">
             </div>
 
             <div class="form-floating" style="padding-top:15px; padding-bottom:8%;">
@@ -34,7 +34,7 @@
                      title="" required="" id="id_password">
             </div>
 
-            <p>没有账户？<a href="{% url 'users:register' %}">注册</a></p>
+            <p>没有账户？<a href="{% url 'users:register' %}"  style="color:#2560a7;">注册</a></p>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit" style="margin-top:5%">登陆</button>
             <input type="hidden" name="next" value="{% url 'blog:index' %}">

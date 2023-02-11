@@ -13,6 +13,12 @@
         margin-bottom:0px!important;
         }
     .pb-3, .py-3{ padding-bottom:0px!important;}
+
+    @media (max-width: 768px){
+        .text-muted{ margin-left:auto; margin-right:auto; }
+        ul { margin-left:auto; margin-right:auto; }
+        .justify-content-end { justify-content: center!important; }
+    }
 </style>
 
 {% endblock head %}
@@ -48,7 +54,7 @@
     <ul class="nav justify-content-center">
       <li class="nav-item"><a href="{% url 'blog:index' %}" class="nav-link px-2 text-muted">Home</a></li>
       <li class="nav-item"><a href="{% url 'blog:blogs' %}" class="nav-link px-2 text-muted">Blog</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <li class="nav-item"><a href="{% url 'blog:about' %}" class="nav-link px-2 text-muted">About</a></li>
     </ul>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -69,5 +75,6 @@
       </use></svg></a></li>
     </ul>
 </footer>
+
 
 {% endblock %}

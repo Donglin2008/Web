@@ -1,6 +1,7 @@
 <!doctype html>
 
 {% load bootstrap4 %}
+{% load static %}
 <html lang="zh">
 <head>
   <meta charset="utf-8">
@@ -96,38 +97,41 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light" data-bs-theme="light">
-    <a class="navbar-brand" href="{% url 'blog:index' %}">
-      Donglin
-    </a>
+        <a class="navbar-brand" href="{% url 'blog:index' %}">
+          Donglin
+        </a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarCollapse" aria-controls="navbarCollapse"
-        aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span></button>
 
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'blog:blogs' %}">Blog</a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-            {% if user.is_authenticated %}
-                <text><h7 class="navbar-text">Hello,{{ user.username }}!</h7></text>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:logout' %}">注销</a>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:login' %}">登陆</a>
+                  <a class="nav-link" href="{% url 'blog:blogs' %}">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'users:register' %}">注册</a>
+                    <a class="nav-link" href="{% url 'blog:about' %}">About</a>
                 </li>
-            {% endif %}
-        </ul>
-    </div>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <text><h7 class="navbar-text">Hello,{{ user.username }}!</h7></text>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:logout' %}">注销</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:login' %}">登陆</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:register' %}">注册</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </nav>
 
   {% block main %}

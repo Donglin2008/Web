@@ -1,9 +1,10 @@
-{% if user.is_superuser %}
+
 <!--TODO：适配网页宽度-->
 {% extends "blog/base.html" %}
 
 {% block content %}
 {% load static %}
+{% if user.is_superuser %}
         <form method = "post" action = "{% url 'blog:new_blog' %}">
             {% csrf_token %}
             {{ form.media }}
@@ -23,7 +24,7 @@
         </form>
 
 <br/>
-
+{% endif %}
     <!--存在bug⬇-->
     <!--<script type="text/javascript">
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event =>
@@ -148,4 +149,3 @@
     </script>-->
 
 {% endblock %}
-{% endif %}

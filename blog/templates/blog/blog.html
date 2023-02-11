@@ -31,19 +31,20 @@
             <button type="button" class="btn btn-outline-primary translate-middle-x">编辑</button></a>
         {% endif %}
 
-        {% if blog.id == id_last %}
-        <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%" disabled>Next</button>
-        {% else %}
-        <a href="{% url 'blog:blog' blog_next %}">
-            <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%">Next</button></a>
-        {% endif %}
-
         {% if blog.id == id_first %}
-        <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%" disabled>Last</button>
+        <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%" disabled>OLDER</button>
         {% else %}
         <a href="{% url 'blog:blog' blog_last %}">
-            <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%">Last</button></a>
+            <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%">OLDER</button></a>
         {% endif %}
+        
+        {% if blog.id == id_last %}
+        <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%" disabled>NEWER</button>
+        {% else %}
+        <a href="{% url 'blog:blog' blog_next %}">
+            <button type="button" class="btn btn-outline-secondary" style="margin-left:10%;margin-right:10%">NEWER</button></a>
+        {% endif %}
+
     </div>
 </footer>
 
