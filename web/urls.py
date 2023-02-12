@@ -18,6 +18,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.urls import path, include
 
+from blog import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mdeditor/', include('mdeditor.urls')),
@@ -25,6 +27,9 @@ urlpatterns = [
     path('', include('users.urls')),
     path('', include('learning.urls')),
 ]
+
+handler404 = views.page_not_find
+handler500 = views.error
 
 if settings.DEBUG:
     # static files (images, css, javascript, etc.)
