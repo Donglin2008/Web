@@ -68,11 +68,11 @@ def about(request):
     return render(request, 'blog/about.html')
 
 
-def page_not_find(request):
+def page_not_find(request, exception):
     """404"""
-    return render(request, '404.html')
+    return render(request, '404.html', status=404)
 
 
 def error(request):
     """50x"""
-    return render(request, '500.html')
+    return render(request, '500.html', status=500)
