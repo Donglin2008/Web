@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1 style="margin-top:7%; margin-bottom:8%;">学习笔记</h1>
+</div>
+
+<div class="row">
+    {% for topic in topics %}
+    <div class="card" style="width: 18rem; margin-left:3%; margin-right:3%;">
+      <div class="card-body">
+        <h5 class="card-title">{{ topic }}</h5>
+        <p class="card-text"></p>
+        <a href="{% url 'learning:topic' topic.id %}" class="btn-primary btn-sm">Read More</a>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

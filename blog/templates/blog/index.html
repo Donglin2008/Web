@@ -1,7 +1,6 @@
 {% extends "blog/base.html" %}
 
 {% block head %}
-
 <style type="text/css">
     .jumbotron{
             background:url(/media/index.jpg) no-repeat center center;
@@ -13,11 +12,18 @@
         margin-bottom:0px!important;
         }
     .pb-3, .py-3{ padding-bottom:0px!important;}
+    h1{  margin-bottom:300px; }
 
     @media (max-width: 768px){
         .text-muted{ margin-left:auto; margin-right:auto; }
         ul { margin-left:auto; margin-right:auto; }
         .justify-content-end { justify-content: center!important; }
+        .display-2{
+            font-size: 3.5rem;
+            font-weight: 400;
+            line-height: 2;
+        }
+        h1{ margin-bottom:100px; }
     }
 </style>
 
@@ -28,7 +34,7 @@
 <div class="jumbotron">
     <div class="container">
         <div class="text-center">
-            <h1 class="display-2" style="color:rgba(246,248, 250, 0.9); margin-bottom:300px">Donglin的个人站</h1>
+            <h1 class="display-2" style="color:rgba(246,248, 250, 0.9);">Donglin的个人站</h1>
         </div>
 
         <br/>

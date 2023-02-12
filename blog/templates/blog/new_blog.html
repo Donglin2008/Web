@@ -1,9 +1,7 @@
-
 <!--TODO：适配网页宽度-->
 {% extends "blog/base.html" %}
 
 {% block content %}
-{% load static %}
 {% if user.is_superuser %}
         <form method = "post" action = "{% url 'blog:new_blog' %}">
             {% csrf_token %}

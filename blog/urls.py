@@ -18,4 +18,8 @@ urlpatterns = [
     path('blogs/', views.blogs, name='blogs'),
     # 介绍
     path('about/', views.about, name='about'),
+    #404
+    path('404', views.page_not_find, name='404'),
+    #50x
+    path('50x', views.error, name='50x'),
 ]

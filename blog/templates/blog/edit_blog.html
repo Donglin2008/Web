@@ -1,7 +1,8 @@
-{% if user.is_superuser %}
 {% extends 'blog/base.html' %}
 
 {% block content %}
+
+{% if user.is_superuser %}
 
 <form action="{% url 'blog:edit_blog' blog.id %}" method='post'>
     {% csrf_token %}
@@ -26,5 +27,6 @@
 
 <br/>
 
-{% endblock %}
 {% endif %}
+
+{% endblock %}

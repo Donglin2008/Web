@@ -1,35 +1,35 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-
-{% for blog in blogs %}
-
-<div class="card w-75 mb-3 mx-auto">
-  <div class="card-header">
-      {{ blog.name }}
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-        <p>{{ blog.preface }}</p>
-    </blockquote>
-    <a href="{% url 'blog:blog' blog.id %}" class="btn-primary btn-sm">Read More</a>
-  </div>
-  <div class="card-footer text-muted">
-    {{ blog.date_added }}
-  </div>
+<div class="text-center">
+    <h1 style="margin-top:3%; margin-bottom:3%;">博客</h1>
 </div>
-
+{% for blog in blogs %}
+<div class="card w-75 mb-3 mx-auto">
+    <div class="card-header">
+        <h2>{{ blog.name }}</h2>
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <p>{{ blog.preface }}</p>
+        </blockquote>
+        <a href="{% url 'blog:blog' blog.id %}" class="btn-primary btn-sm">Read More</a>
+    </div>
+    <div class="card-footer text-muted">
+        <h6>{{ blog.date_added }}</h6>
+    </div>
+</div>
 {% endfor %}
 
 <br/>
 
 {% if user.is_superuser %}
 <footer>
-  <div class="text-center">
-    <a href="{% url 'blog:new_blog' %}">
-        <button type="button" class="btn btn-outline-primary translate-middle-x">New</button>
-    </a>
-  </div>
+    <div class="text-center">
+        <a href="{% url 'blog:new_blog' %}">
+            <button type="button" class="btn btn-outline-primary translate-middle-x">New</button>
+        </a>
+    </div>
 </footer>
 
 <br/>

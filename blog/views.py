@@ -3,12 +3,14 @@ from django.shortcuts import render, redirect
 from .models import EditBlog
 from .forms import MDForm
 
+
 # Create your views here.
 def index(request):
     """主页"""
     blog = EditBlog.objects.last()
     context = {'last_blog': blog}
     return render(request, 'blog/index.html', context)
+
 
 def blog(request, blog_id):
     """查看具体笔记内容"""
@@ -19,6 +21,7 @@ def blog(request, blog_id):
     id_first = EditBlog.objects.first().id
     context = {'blog': blog, 'blog_next': blog_next, 'blog_last': blog_last, 'id_last': id_last, 'id_first': id_first}
     return render(request, 'blog/blog.html', context)
+
 
 def new_blog(request):
     """新建笔记"""
@@ -32,6 +35,7 @@ def new_blog(request):
 
     context = {'form': form}
     return render(request, 'blog/new_blog.html', context)
+
 
 def edit_blog(request, blog_id):
     """编辑已有笔记"""
@@ -51,12 +55,24 @@ def edit_blog(request, blog_id):
     context = {'blog': blog, 'form': form}
     return render(request, 'blog/edit_blog.html', context)
 
+
 def blogs(request):
     """博客总览"""
     blogs = EditBlog.objects.order_by('-date_added')
     context = {'blogs': blogs}
     return render(request, 'blog/blogs.html', context)
 
+
 def about(request):
     """介绍页"""
     return render(request, 'blog/about.html')
+
+
+def page_not_find(request):
+    """404"""
+    return render(request, '404.html')
+
+
+def error(request):
+    """50x"""
+    return render(request, '500.html')

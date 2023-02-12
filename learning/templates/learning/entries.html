@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1 style="margin-top:7%; margin-bottom:5%;">{{ topic.text }}</h1>
+</div>
+
+{% for entry in entries %}
+<div class="card w-75 mb-3 mx-auto">
+    <div class="card-header">
+        <h2>{{ entry.name }}</h2>
+    </div>
+    <br/>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <h4>{{ entry.preface }}</h4>
+        </blockquote>
+        <br/>
+        <a href="{% url 'learning:entry' entry.id %}" class="btn-primary btn">Read More</a>
+    </div>
+    <div class="card-footer text-muted">
+        <h6>{{ entry.date_added }}</h6>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
