@@ -17,4 +17,15 @@
     {% endfor %}
 </div>
 
+{% if user.is_superuser %}
+<footer>
+    <div class="text-center">
+        <a href="">
+            <button type="button" class="btn btn-outline-primary translate-middle-x">New</button>
+        </a>
+    </div>
+</footer>
+
+<br/>
+{% endif %}
 {% endblock content %}
